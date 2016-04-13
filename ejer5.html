@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+</head>
+
+<body>
+   <div id="outerHost">
+       <div id="name">Javier Vélez</div>
+       <div id="twitter">javiervelezreye</div> 
+       <div id="telefono">123456789</div>
+       <img src="http://placehold.it/350x150">
+
+   </div>
+   <script>
+   var outerHost = document.querySelector('#outerHost');
+   var outerRoot = outerHost.createShadowRoot();
+   outerRoot.innerHTML = 'Nombre: <content select="#name"></content> Twitter: <content select="#twitter"></select>';
+   </script>
+</body>
+
+</html>

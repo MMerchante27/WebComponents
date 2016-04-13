@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cart">
+        <div class="product">
+            <div class="name">Cow</div>
+            <div class="price">Orange</div>
+        </div>
+        <div class="product">
+            <div class="name"> Tomato </div>
+            <div class="price"> Tomato-Cow </div>
+        </div>
+    </div>
+    <script>
+    var host = document.querySelector('#cart');
+    var root = host.createShadowRoot();
+    root.innerHTML = 'Product: <content select=".product"></content>'; //No accede al name porque opera a primer nivel
+    </script>
+</body>
+
+</html>
