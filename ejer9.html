@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <template id="news">
+        <img src="">
+        <div class="body"></div>
+    </template>
+    <div class="new-1"></div>
+    <div class="new-2"></div>
+    <script>
+    function createNew(container, image, body) {
+        var root = document.querySelector(container).createShadowRoot();
+        var template = document.querySelector("#news").content;
+        template.querySelector("img").src = image;
+        template.querySelector(".body").textContent = body;
+        root.appendChild(template.cloneNode(true));
+    }
+
+    var new1 = createNew(".new-1", "http://placehold.it/350x150	", "body");
+    var new2 = createNew(".new-2", "http://placehold.it/350x150", "body");
+    </script>
+</body>
+
+</html>
