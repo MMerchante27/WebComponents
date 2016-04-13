@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>Up</button>
+    <span class="content"></span>
+    <button id='btn'>Down</button>
+
+
+    <script>
+    var cont = 0;
+    document.querySelector('#btn').addEventListener('click',
+        function() {
+            cont = cont + 1;
+            document.querySelector('.content').textContent = cont;
+        });
+    document.querySelector('#btn').addEventListener('click',
+        function() {
+            cont = cont - 1;
+            document.querySelector('.content').textContent = cont;
+        });
+    </script>
+</body>
+
+</html>

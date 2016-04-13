@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='host'>
+       <p>Contenido del light dom</p>
+    </div>
+    <script>
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
+    root.innerHTML = "<button id='btn'>Up</button><span id='content'></span><button id='down'>Down</button>";
+    var cont = 0;
+    root.querySelector('#btn').addEventListener('click',
+        function() {
+            cont = cont + 1;
+            console.log(cont);
+            root.querySelector('#content').textContent = cont;
+        });
+    root.querySelector('#down').addEventListener('click',
+        function() {
+            cont = cont - 1;
+            console.log(cont);
+
+            root.querySelector('#content').textContent = cont;
+        });
+    </script>
+</body>
+
+</html>
