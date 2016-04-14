@@ -1,0 +1,30 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-film">
+    <template id="film">
+        <h1 id="title"></h1>
+        <p id="plot"> </p>
+        <p id="director"> </p>
+        <p id="año"> </p>
+        <img id="img" src="">
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-film',
+            ready: function() {
+
+                var title = this.$.title;
+                title.textContent = "Film"
+                 var plot = this.$.plot;
+                plot.textContent = "Plot"
+                var director = this.$.director;
+                director.textContent = "Director"
+                var año = this.$.año;
+                año.textContent = "Año"
+                var image = this.$.img;
+                image.src = "http://placehold.it/350x150"
+            }
+        })
+
+    })();
+    </script>
