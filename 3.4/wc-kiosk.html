@@ -1,0 +1,43 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-kiosk">
+    <template id="kiosk">
+        <style>
+        .kiosk {
+            border-style: solid;
+            background-color: #E040FB;
+            margin-top: 10px;
+            border-color: #EEEEEE;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            color: white;
+            margin: 10px;
+        }
+        </style>
+        <div class="kiosk">
+            <h1 id="title">{{title}}</h1>
+            <div id="ticket">{{ticket}}</div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-kiosk',
+            properties: {
+                title: {
+                    type: String,
+                    value: 'Kiosk'
+                },
+
+            },
+            addTicket: function(ticket) {
+                console.log(ticket);
+                this.querySelector("#ticket").appendChild(ticket);
+            }
+
+
+        })
+
+    })();
+    </script>
