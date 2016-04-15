@@ -1,0 +1,34 @@
+<link rel="import" href="wc-window.html">
+<link rel="import" href="wc-film.html">
+<link rel="import" href="wc-kiosk.html">
+<link rel="import" href="wc-ticket.html">
+<dom-module id="wc-text">
+
+<template>
+    <wc-window id="window" kiosk="{{kiosk}}">
+        <wc-film title='Peli1' plot='Plot1' director='Director1' year='1' img="http://placehold.it/350x150">
+        </wc-film>
+        <wc-film title='Peli2' plot='Plot2' director='Director2' year='2' img="http://placehold.it/350x150">
+        </wc-film>
+    </wc-window>
+    <wc-kiosk id='k'></wc-kiosk>
+</template>
+<script>
+(function() {
+    Polymer({
+        is: 'wc-text',
+        properties: {
+            kiosk: {
+                type: Object
+            },
+
+        },
+        ready: function() {
+        	this.kiosk = this.$.k;
+        },
+
+
+    })
+
+})();
+</script>

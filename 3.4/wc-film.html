@@ -13,7 +13,7 @@
             margin-right: auto;
             margin-bottom: 20px;
             padding: 10px;
-            color:#4A148C;
+            color: #4A148C;
         }
         
         h1 {
@@ -29,9 +29,9 @@
             <p id="code">Code {{code}} </p>
             <img id="img" src="{{img}}" <br>
             <br>
-            <button id="btn1" on-click="getSession" value="16.00">Session 1</button>
-            <button id="btn2" on-click="getSession" value="18.00">Session 2</button>
-            <button id="btn3" on-click="getSession" value="20.00">Session 3</button>
+            <button id="btn" on-click='wcFilmSession' value="16.00">Session 1</button>
+            <button id="btn" on-click='wcFilmSession' value="18.00">Session 2</button>
+            <button id="btn" on-click='wcFilmSession' value="20.00">Session 3</button>
     </template>
     </div>
     <script>
@@ -73,14 +73,23 @@
 
             },
 
+
+
             getCode: function(title, session) {
                 return title + '--' + session
             },
 
-            getSession: function(e) {
-
+            wcFilmSession: function(e) {
+                e.stopPropagation();
                 var button = Polymer.dom(e).localTarget;
                 var session = button.value;
+                this.fire('wc-film-session', {
+                    title: this.title,
+                    session: session,
+                    code: this.code
+                });
+
+
                 console.log(session)
             }
 

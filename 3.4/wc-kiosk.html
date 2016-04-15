@@ -5,9 +5,13 @@
         .kiosk {
             border-style: solid;
             background-color: #E040FB;
-            margin-top: 10px;
             border-color: #EEEEEE;
             border-radius: 10px;
+            position: fixed;
+            top:10px;
+            left:880px;
+            width: 49%;
+           
         }
         
         h1 {
@@ -32,8 +36,8 @@
 
             },
             addTicket: function(ticket) {
-                console.log(ticket);
                 this.querySelector("#ticket").appendChild(ticket);
+                //this.$.ticket.appendChild(ticket); Es lo mismo que arriba
             }
 
 

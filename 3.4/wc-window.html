@@ -10,6 +10,9 @@
             background-color: #6A1B9A;
             border-color: #EEEEEE;
             border-radius: 10px;
+            width: 50%;
+            top: 0;
+            left: 0;
         }
         
         h1 {
@@ -17,7 +20,7 @@
             margin: 10px;
         }
         </style>
-        <div class="window" kiosk="#kiosk">
+        <div class="window" id="window" on-wc-film-session="onSesion" on-click="prueba">
             <h1>Window</h1>
             <content></content>
         </div>
@@ -28,26 +31,23 @@
             is: 'wc-window',
             properties: {
                 kiosk: {
-                    type: String,
-                    value: ''
+                    type: Object,
                 }
             },
-            ready: function() {
-                var films = Polymer.dom(this).querySelectorAll('wc-film');
-                films.forEach(function(film) {
-                    film.addEventListener('click', function(e) {
-                        var target = e.target;
-                        var valor = target.value;
-                        var ticket = new Ticket();
-                        ticket.session = valor;
-                        ticket.title = film.title;
-                        ticket.code = film.code;
-                        var ki = this.parentNode.querySelector(this.kiosk).addTicket(ticket);
-                    }.bind(this))
-                }.bind(this))
+
+            onSesion: function(e) {
+                var ticket = new Ticket();
+                ticket.session = e.detail.session;
+                ticket.title = e.detail.title;
+                ticket.code = e.detail.code;
+                this.kiosk.addTicket(ticket);
+
+
             },
 
-
+            prueba: function() {
+                console.log("prueba");
+            },
         })
 
     })();
