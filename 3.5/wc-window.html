@@ -1,0 +1,58 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-film.html">
+<link rel="import" href="wc-ticket.html">
+<link rel="import" href="wc-kiosk.html">
+<dom-module id="wc-window">
+    <template id="window">
+        <style>
+        .window {
+            border-style: solid;
+            background-color: #6A1B9A;
+            */ border-color: #EEEEEE;
+            border-radius: 10px;
+            width: 50%;
+            top: 0;
+            left: 0;
+        }
+        
+        h1 {
+            color: white;
+            margin: 10px;
+        }
+        </style>
+        <div class="window" on-wc-film-session="onSesion">
+            <h1>Window</h1>
+            <template is="dom-repeat" items="{{films}}">
+                <wc-film title="{{item.title}}" director="{{item.director}}" plot="{{item.plot}}" session="{{item.session}}" year="{{item.year}}"></wc-film>
+            </template>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-window',
+            properties: {
+                kiosk: {
+                    type: Object,
+                },
+
+                films: {
+                    type: Object,
+                }
+            },
+
+            onSesion: function(e) {
+                var ticket = new Ticket();
+                ticket.session = e.detail.session;
+                ticket.title = e.detail.title;
+                ticket.code = e.detail.code;
+                this.kiosk.addTicket(ticket);
+            },
+
+            prueba: function() {
+                console.log("prueba");
+            },
+        })
+
+    })();
+    </script>

@@ -1,0 +1,52 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-cinema">
+  
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-cinema',
+            properties: {
+
+                films: {
+                    type: Array,
+                    value: function() {
+                        return [];
+                    }
+                }
+
+            },
+
+
+            ready: function() {
+
+                this.films = [{
+                        title: "Film 1",
+                        plot: "Plot 1",
+                        director: "Director 1",
+                        year: "1958",
+                        session: "Session 1"
+
+                    },
+
+                    {
+                        title: "Film 2",
+                        plot: "Plot 2",
+                        director: "Director 2",
+                        year: "1994",
+                        session: "Session 2"
+
+
+                    }
+                ];
+
+                this.notifyPath('films', this.films);
+
+
+            }
+
+
+
+        })
+
+    })();
+    </script>

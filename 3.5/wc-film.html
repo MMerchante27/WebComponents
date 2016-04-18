@@ -1,0 +1,97 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-film">
+    <template id="film">
+        <style>
+        .film {
+            background-color: #FAFAFA;
+            width: 500px;
+            height: 500px;
+            border-radius: 50px;
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            color: #4A148C;
+        }
+        
+        h1 {
+            color: #7B1FA2;
+        }
+        </style>
+        <div class="film">
+            <h1 id="title">{{title}}</h1>
+            <hr>
+            <p id="plot">Plot {{plot}} </p>
+            <p id="director">Director {{director}} </p>
+            <p id="year">Year {{year}} </p>
+            <p id="code">Code {{code}} </p>
+            <img id="img" src="{{img}}" <br>
+            <br>
+            <button id="btn" on-click='wcFilmSession' value="16.00">Session 1</button>
+            <button id="btn" on-click='wcFilmSession' value="18.00">Session 2</button>
+            <button id="btn" on-click='wcFilmSession' value="20.00">Session 3</button>
+    </template>
+    </div>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-film',
+            properties: {
+                title: {
+                    type: String,
+                    value: 'Title'
+                },
+                plot: {
+                    type: String,
+                    value: 'asdasdasd'
+                },
+                director: {
+                    type: String,
+                    value: 'sdasda'
+                },
+                year: {
+                    type: Number,
+                    value: '2001'
+                },
+
+                img: {
+                    type: String,
+                    value: 'http://placehold.it/350x150'
+                },
+
+                code: {
+                    type: String,
+                    computed: 'getCode(title,session)'
+                },
+
+                session: {
+                    type: String,
+                    value: 'Session1'
+                },
+
+            },
+
+
+
+            getCode: function(title, session) {
+                return title + '--' + session
+            },
+
+            wcFilmSession: function(e) {
+                e.stopPropagation();
+                var button = Polymer.dom(e).localTarget;
+                var session = button.value;
+                this.fire('wc-film-session', {
+                    title: this.title,
+                    session: session,
+                    code: this.code
+                });
+
+            }
+
+        })
+
+    })();
+    </script>

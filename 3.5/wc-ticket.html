@@ -1,0 +1,50 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-ticket">
+    <template id="ticket">
+        <style>
+           .ticket {
+            background-color: #FAFAFA;
+            height: 80%;
+            border-radius: 50px;
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            color: #4A148C;
+        }
+        </style>
+        <div class="ticket">
+            <h1 id="title">{{title}}</h1>
+            <p id="code">Code: {{code}} </p>
+            <p>Session: {{session}} </p>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Ticket = Polymer({
+            is: 'wc-ticket',
+            properties: {
+                title: {
+                    type: String,
+                    value: 'Title'
+                },
+
+                code: {
+                    type: String,
+                    computed: 'getCode(title,session)'
+                },
+
+                session: {
+                    type: String,
+                    value: 'Session1'
+                },
+
+            },
+
+            getCode: function(title, session) {
+                return title + '--' + session
+            }
+
+        })
+
+    })();
+    </script>

@@ -1,0 +1,40 @@
+<link rel="import" href="wc-window.html">
+<link rel="import" href="wc-film.html">
+<link rel="import" href="wc-kiosk.html">
+<link rel="import" href="wc-ticket.html">
+<link rel="import" href="wc-cinema.html">
+<dom-module id="wc-text">
+
+<template>
+    <wc-window id="window" kiosk="{{kiosk}}" films="[[films]]">
+    </wc-window>
+    <wc-cinema films="{{films}}"></wc-cinema>
+    <wc-kiosk id='k'></wc-kiosk>
+</template>
+<script>
+(function() {
+    Polymer({
+        is: 'wc-text',
+        properties: {
+            kiosk: {
+                type: Object
+            },
+
+            movies: {
+                type: Object,
+                value: function(){
+                    return [];
+                }
+            }
+
+        },
+        
+        ready: function() {
+        	this.kiosk = this.$.k;
+        },
+
+
+    })
+
+})();
+</script>
