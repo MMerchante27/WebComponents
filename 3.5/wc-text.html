@@ -6,6 +6,12 @@
 <link rel="import" href="wc-selector.html">
 <dom-module id="wc-text">
     <template>
+        <style>
+        :host {
+            --fondo: #6A1B9A;
+        }
+        </style>
+        <button on-tap="setTheme">Change Theme!</button>
         <wc-selector key="films" data="{{films}}">
             <wc-cinema id="A" films="{{filmsA}}"></wc-cinema>
             <wc-cinema id="B" films="{{filmsB}}"></wc-cinema>
@@ -38,6 +44,10 @@
 
                     }
                 },
+                theme: {
+                    type: Number,
+                    value: 0
+                }
 
 
             },
@@ -46,6 +56,20 @@
                 this.kiosk = this.$.k;
             },
 
+            setTheme: function() {
+                if (this.theme === 0) {
+                    this.customStyle['--fondo'] = '#2196F3';
+                    this.updateStyles();
+                    this.theme = 1;
+                } else {
+                    this.customStyle['--fondo'] = '#6A1B9A';
+                    this.updateStyles();
+                    this.theme = 0;
+
+
+                }
+
+            }
 
 
 

@@ -5,6 +5,12 @@
 <link rel="import" href="wc-cinema.html">
 <dom-module id="wc-selector">
     <template>
+        <style>
+        button {
+            background: var(--fondo, blue);
+            color:white;
+        }
+        </style>
         <button value="A" on-tap="onTap">Cambiar cartelera </button>
         <content></content>
     </template>
