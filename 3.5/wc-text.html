@@ -3,15 +3,15 @@
 <link rel="import" href="wc-kiosk.html">
 <link rel="import" href="wc-ticket.html">
 <link rel="import" href="wc-cinema.html">
+<link rel="import" href="wc-selector.html">
 <dom-module id="wc-text">
     <template>
-        <button value="A" on-tap="onTap">Cambiar cartelera </button>
-        <wc-window id="window" kiosk="{{kiosk}}" films="[[films]]">
-        </wc-window>
-        <wc-selector data="{{films}}">
+        <wc-selector key="films" data="{{films}}">
             <wc-cinema id="A" films="{{filmsA}}"></wc-cinema>
             <wc-cinema id="B" films="{{filmsB}}"></wc-cinema>
         </wc-selector>
+        <wc-window id="window" kiosk="{{kiosk}}" films="[[films]]">
+        </wc-window>
         <wc-kiosk id='k'></wc-kiosk>
     </template>
     <script>
@@ -44,25 +44,10 @@
 
             ready: function() {
                 this.kiosk = this.$.k;
-                this.films = this.filmsA;
             },
 
-            onTap: function(e) {
-
-                if (e.target.value === 'A') {
-                    e.target.value = 'B';
-                    this.films = this.filmsB;
-                    this.notifyPath('films', this.films);
 
 
-                } else {
-                    e.target.value = 'A';
-                    this.films = this.filmsA;
-                    this.notifyPath('films', this.films);
-
-
-                }
-            }
 
 
         })
