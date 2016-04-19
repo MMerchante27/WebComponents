@@ -1,0 +1,47 @@
+<dom-module id="wc-kiosk">
+    <template id="kiosk">
+        <style>
+        .kiosk {
+            border-style: solid;
+            background-color: #E040FB;
+            border-color: #EEEEEE;
+            border-radius: 10px;
+            position: absolute;
+            top:10px;
+            left:880px;
+            width: 49%;
+            overflow-y: auto;
+           
+        }
+        
+        h1 {
+            color: white;
+            margin: 10px;
+        }
+        </style>
+        <div class="kiosk">
+            <h1 id="title">{{title}}</h1>
+            <div id="ticket">{{ticket}}</div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-kiosk',
+            properties: {
+                title: {
+                    type: String,
+                    value: 'Kiosk'
+                },
+
+            },
+            addTicket: function(ticket) {
+                this.querySelector("#ticket").appendChild(ticket);
+                //this.$.ticket.appendChild(ticket); Es lo mismo que arriba
+            }
+
+
+        })
+
+    })();
+    </script>
