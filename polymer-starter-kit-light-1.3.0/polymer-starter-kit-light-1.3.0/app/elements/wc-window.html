@@ -1,3 +1,4 @@
+z
 <dom-module id="wc-window">
     <template id="window">
         <style>
@@ -10,13 +11,13 @@
             top: 0;
             left: 0;
             background-color: var(--fondo, blue);
-
         }
         
         h1 {
             color: white;
             margin: 10px;
         }
+
         </style>
         <div class="window" on-wc-film-session="onSesion">
             <h1>Window</h1>
@@ -40,17 +41,16 @@
             },
 
             onSesion: function(e) {
+
                 var ticket = new Ticket();
                 ticket.session = e.detail.session;
                 ticket.title = e.detail.title;
                 ticket.code = e.detail.code;
                 this.kiosk.addTicket(ticket);
             },
-
-            prueba: function() {
-                console.log("prueba");
-            },
         })
 
     })();
+
     </script>
+
